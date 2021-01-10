@@ -8,7 +8,6 @@
 #ifndef ROS2_MSG_LIST_HPP_
 #define ROS2_MSG_LIST_HPP_
 
-
 #include "std_msgs/Bool.hpp"
 #include "std_msgs/Char.hpp"
 #include "std_msgs/Empty.hpp"
@@ -28,6 +27,7 @@
 #include "std_msgs/String.hpp"
 
 #include "sensor_msgs/BatteryState.hpp"
+#include "sensor_msgs/CompressedImage.hpp"
 #include "sensor_msgs/Imu.hpp"
 #include "sensor_msgs/LaserScan.hpp"
 #include "sensor_msgs/MagneticField.hpp"
@@ -53,7 +53,5 @@
 #include "turtlebot3_msgs/VersionInfo.hpp"
 
 #include "tf2_msgs/TFMessage.hpp"
-
-
 
 #endif /* ROS2_MSG_LIST_HPP_ */
