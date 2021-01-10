@@ -69,7 +69,7 @@ namespace sensor_msgs
             uint32_t previousSize = size;
             size += header.size_of_topic(&topic->header, size);
             size += ucdr_alignment(size, 4) + 4 + (uint32_t)(strlen(topic->format) + 1);
-            size += ucdr_alignment(size, 4) + (topic->data_size * 1);
+            size += ucdr_alignment(size, 4) + 4 + (topic->data_size * 1);
 
             return size - previousSize;
         }
