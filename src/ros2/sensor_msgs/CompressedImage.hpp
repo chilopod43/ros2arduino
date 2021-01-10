@@ -33,7 +33,7 @@ namespace sensor_msgs
     public:
         std_msgs::Header header;
         char format[255];
-        uint8_t *data;
+        uint8_t data[10000];
         uint32_t data_size;
 
         CompressedImage() : Topic("sensor_msgs::msg::dds_::CompressedImage_", "CompressedImage", SENSOR_MSGS_COMPRESSED_IMAGE_ID),
