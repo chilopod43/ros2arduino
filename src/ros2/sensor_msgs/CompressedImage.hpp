@@ -39,7 +39,7 @@ namespace sensor_msgs
 
         CompressedImage() : Topic("sensor_msgs::msg::dds_::CompressedImage_", "CompressedImage", SENSOR_MSGS_COMPRESSED_IMAGE_ID),
                             header(),
-                            data(nullptr), data_size(0), data_size_capacity(0)
+                            data(nullptr), data_size(0), data_array_capacity(0)
         {
             memset(format, 0, sizeof(format));
         }
