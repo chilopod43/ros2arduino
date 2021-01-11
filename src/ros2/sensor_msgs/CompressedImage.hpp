@@ -33,14 +33,14 @@ namespace sensor_msgs
     public:
         std_msgs::Header header;
         char format[255];
-        uint8_t data[100000];
+        uint8_t *data;
         uint32_t data_size;
 
         CompressedImage() : Topic("sensor_msgs::msg::dds_::CompressedImage_", "CompressedImage", SENSOR_MSGS_COMPRESSED_IMAGE_ID),
-                            header(), data_size(0)
+                            header(),
+                            data(nullptr), data_size(0)
         {
             memset(format, 0, sizeof(format));
-            memset(data, 0, sizeof(data));
         }
 
         bool serialize(void *msg_buf, const CompressedImage *topic)
@@ -58,7 +58,7 @@ namespace sensor_msgs
             ucdrBuffer *reader = (ucdrBuffer *)msg_buf;
             (void)header.deserialize(reader, &topic->header);
             (void)ucdr_deserialize_string(reader, topic->format, sizeof(topic->format));
-            (void)ucdr_deserialize_sequence_uint8_t(reader, topic->data, 100000, &topic->data_size);
+            (void)ucdr_deserialize_sequence_uint8_t(reader, topic->data, 10000, &topic->data_size);
 
             return !reader->error;
         }
